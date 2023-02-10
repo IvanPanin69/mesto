@@ -7,7 +7,6 @@ let job = document.querySelector('.profile__job');
 let nameInput = document.querySelector('.popup__input-name');
 let jobInput = document.querySelector('.popup__input-job');
 
-
 editButton.addEventListener('click', function (){
     popup.classList.toggle('popup_openclose');
     nameInput.value = name.textContent;
@@ -17,9 +16,7 @@ popupClose.addEventListener('click', function (){
     popup.classList.toggle('popup_openclose');
 });
 
-
 formElement.addEventListener('click', handleFormSubmit); 
-
 
 function handleFormSubmit (evt) {
     evt.preventDefault();
