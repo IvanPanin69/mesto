@@ -1,0 +1,8 @@
+.element__info {
+    width: 240px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 25px 0 0 21px;
+    gap: 30px;
+}

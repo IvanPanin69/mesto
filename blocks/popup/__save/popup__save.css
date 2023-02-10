@@ -1,0 +1,23 @@
+.popup__save {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    max-width: 109px;
+    min-height: 36px;
+    margin: 14px auto 0;
+    opacity: 1;
+}
+.popup__save:hover {
+    transition: opacity 0.2s ease-in-out 0s;
+    opacity: 0.8;
+}
+@media screen and (max-width: 550px) {
+    .popup__save {
+        font-size: 14px;
+        line-height: 17px;
+        max-width: 74px;
+        min-height: 32px;
+        margin: 14px auto 0;
+    }
+}
