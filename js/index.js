@@ -9,12 +9,12 @@ let jobInput = document.querySelector('.popup__input-job');
 
 
 editButton.addEventListener('click', function (){
-    popup.classList.toggle('popup__openclose');
+    popup.classList.toggle('popup_openclose');
     nameInput.value = name.textContent;
     jobInput.value = job.textContent;
 });
 popupClose.addEventListener('click', function (){
-    popup.classList.toggle('popup__openclose');
+    popup.classList.toggle('popup_openclose');
 });
 
 
@@ -27,5 +27,5 @@ function handleFormSubmit (evt) {
     console.log(jobInput.value);
     name.textContent = nameInput.value;
     job.textContent = jobInput.value;
-    popup.classList.toggle('popup__openclose');
+    popup.classList.toggle('popup_openclose');
 };
