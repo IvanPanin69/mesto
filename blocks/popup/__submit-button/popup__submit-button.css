@@ -8,6 +8,7 @@
     background-color: #000000;
     color: #FFFFFF;
     opacity: 1;
+    cursor: pointer;
 }
 .popup__submit-button:hover {
     transition: opacity 0.2s ease-in-out 0s;

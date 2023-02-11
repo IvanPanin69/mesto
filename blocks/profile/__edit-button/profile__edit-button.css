@@ -10,6 +10,7 @@
     height: 24px;
     margin: 15px 0 0;
     grid-area: button;
+    cursor: pointer;
 }
 .profile__edit-button:hover {
     transition: opacity 0.2s ease-in-out 0s;

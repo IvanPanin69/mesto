@@ -11,6 +11,7 @@
     min-width: 22px;
     height: 19px;
     opacity: 1;
+    cursor: pointer;
 }
 .element__like:hover {
     transition: opacity 0.2s ease-in-out 0s;

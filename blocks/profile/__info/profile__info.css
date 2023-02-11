@@ -3,23 +3,21 @@
     margin: 0 0 0 30px;
     display: grid;
     min-width: 336px;
-    min-height: 73px;
     align-self: center;
     grid-template-columns: repeat(2, minmax(min-content, max-content));
     grid-template-rows: repeat(2, minmax(min-content, max-content));
     grid-template-areas: 
     'name button'
     'job  ...';
-    row-gap: 16px;
-    column-gap: 16px;
+    row-gap: 9px;
+    column-gap: 17px;
 }
 @media screen and (max-width:680px) {
     .profile__info {
         display: flex;
         flex-direction: column;
         min-width: 282px;
-        min-height: 54px;
-        margin: 26px auto 36px;
-        row-gap: 14px;
+        margin: 26px auto 32px;
+        row-gap: 10px;
     }
 }
