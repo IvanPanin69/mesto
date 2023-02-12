@@ -13,11 +13,10 @@
     opacity: 1;
     cursor: pointer;
 }
+.element__like:active {
+    background-image: url(../../../images/element-like-black.svg);
+}
 .element__like:hover {
     transition: opacity 0.2s ease-in-out 0s;
     opacity: 0.5;
-}
-.element__like:active {
-    background-image: url(../../../images/element-like-black.svg);
-    opacity: 1;
 }

@@ -19,5 +19,6 @@
         min-width: 282px;
         margin: 26px auto 32px;
         row-gap: 10px;
+        justify-items: center;
     }
 }

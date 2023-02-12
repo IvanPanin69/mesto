@@ -4,11 +4,15 @@
     font-size: 18px;
     margin: 0;
     grid-area: job;
+    max-width: 336px;
+    text-overflow: ellipsis;   
+    white-space: nowrap;
+    overflow: hidden;
 }
 @media screen and (max-width: 680px) {
     .profile__job {
         font-size: 14px;
-        min-width: 282px;
+        max-width: 282px;
         text-align: center;
     }
 }
