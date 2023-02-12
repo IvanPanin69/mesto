@@ -9,14 +9,14 @@ let jobInput = document.querySelector('#job');
 
 
 function openPopup(){
-    popup.classList.add('popup_submit');
+    popup.classList.add('popup_opened');
     nameInput.value = name.textContent;
     jobInput.value = job.textContent;
 };
 
 
 function closePopup(){
-    popup.classList.remove('popup_submit');
+    popup.classList.remove('popup_opened');
 }
 
 
