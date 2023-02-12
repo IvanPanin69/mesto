@@ -9,7 +9,7 @@
     overflow: hidden;
     max-width: 294px;
 }
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 730px) {
     .profile__name {
         font-size: 27px;
         text-align: center;

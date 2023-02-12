@@ -12,7 +12,7 @@
     row-gap: 9px;
     column-gap: 17px;
 }
-@media screen and (max-width:680px) {
+@media screen and (max-width:730px) {
     .profile__info {
         display: flex;
         flex-direction: column;
