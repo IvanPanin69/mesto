@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="./pages/index.css">
+  <script defer src="./js/constants.js"></script>
+  <script defer src="./js/index.js"></script>
   <title>Mesto</title>
 </head>
 <body class="page">
@@ -39,11 +41,11 @@
     </footer>
     <div class="popup popup_edit" id="popup">
         <div class="popup__container">
-            <button class="popup__close" type="button" aria-label="Кнопка закрытия"></button>
+            <button class="popup__close popup__close_edit" type="button" aria-label="Кнопка закрытия"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" name="submit-form">
-                <label class="popup__field"><input class="popup__input" type="text" name="name" id="name"></label>
-                <label class="popup__field"><input class="popup__input" type="text" name="job" id="job"></label>
+            <form class="popup__form popup__form_edit" name="submit-form">
+                <label class="popup__field"><input class="popup__input" type="text" name="name" id="name" placeholder="Имя" required></label>
+                <label class="popup__field"><input class="popup__input" type="text" name="job" id="job" placeholder="О себе" required></label>
                 <button class="popup__submit-button" type="submit" aria-label="Форма отправки">Сохранить</button>
             </form>
         </div>
@@ -53,19 +55,18 @@
             <button class="popup__close popup__close_add" type="button" aria-label="Кнопка закрытия"></button>
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form popup__form_add" name="submit-form">
-                <label class="popup__field"><input class="popup__input" type="text" name="title" id="named" placeholder="Название"></label>
-                <label class="popup__field"><input class="popup__input" type="text" name="link" id="link" placeholder="Ссылка на картинку"></label>
+                <label class="popup__field"><input class="popup__input" type="text" name="title" id="named" placeholder="Название" required></label>
+                <label class="popup__field"><input class="popup__input" type="url" name="link" id="link" placeholder="Ссылка на картинку" required></label>
                 <button class="popup__submit-button popup__submit-button_add" type="submit" aria-label="Форма отправки">Создать</button>
             </form>
         </div>
     </div>
-    <div class="popup popup-image">
+    <div class="popup popup_image">
         <div class="popup__container-image">
             <button class="popup__close popup__close_image" type="button" aria-label="Кнопка закрытия"></button>
             <img class="popup__image" alt="#" src="#">
             <h3 class="popup__text">...</h3>
         </div>
     </div>
-    <script src="./js/index.js"></script>
 </body>
 </html>
