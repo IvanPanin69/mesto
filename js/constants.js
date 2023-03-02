@@ -9,9 +9,15 @@ const formElementAdd = document.querySelector('.popup__form_add');
 const elements = document.querySelector('.elements');
 const buttonOpenAdded = document.querySelector('.profile__add-button');
 const imagePopup = document.querySelector('.popup_image');
-const buttonOpenPopupImage = document.querySelectorAll('.element__popup');
-const arrayButtonOpenImage = Array.from(buttonOpenPopupImage);
 const card = document.querySelector('#card').content;
+const namedInput = document.querySelector('#named');
+const linkInput = document.querySelector('#link');
+const popupImage = document.querySelector('.popup__image');
+const popupText = document.querySelector('.popup__text');
+const name = document.querySelector('.profile__name');
+const job = document.querySelector('.profile__job');
+const nameInput = document.querySelector('#name');
+const jobInput = document.querySelector('#job');
 const initialCards = [
     {
       name: 'Архыз',
