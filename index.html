@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="./pages/index.css">
   <script defer src="./js/constants.js"></script>
   <script defer src="./js/index.js"></script>
+  <script defer src="./js/validate.js"></script>
   <title>Mesto</title>
 </head>
 <body class="page">
@@ -43,10 +44,16 @@
         <div class="popup__container">
             <button class="popup__close popup__close_edit" type="button" aria-label="Кнопка закрытия"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form popup__form_edit" name="submit-form">
-                <label class="popup__field"><input class="popup__input" type="text" name="name" id="name" placeholder="Имя" required></label>
-                <label class="popup__field"><input class="popup__input" type="text" name="job" id="job" placeholder="О себе" required></label>
-                <button class="popup__submit-button" type="submit" aria-label="Форма отправки">Сохранить</button>
+            <form class="popup__form popup__form_edit" name="submit-form" novalidate>
+                <label class="popup__field">
+                    <input class="popup__input" type="text" name="name" id="name" placeholder="Имя" required  maxlength="20" minlength="2">
+                    <span class="popup__input-error name-error">Вы пропустили это поле.</span>
+                </label>
+                <label class="popup__field">
+                    <input class="popup__input" type="text" name="job" id="job" placeholder="О себе" required maxlength="200" minlength="2">
+                    <span class="popup__input-error job-error">Вы пропустили это поле.</span>
+                </label>
+                <button class="popup__submit-button job-error" type="submit" aria-label="Форма отправки">Сохранить</button>
             </form>
         </div>
     </div>
@@ -54,9 +61,15 @@
         <div class="popup__container">
             <button class="popup__close popup__close_add" type="button" aria-label="Кнопка закрытия"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="popup__form popup__form_add" name="submit-form">
-                <label class="popup__field"><input class="popup__input" type="text" name="title" id="named" placeholder="Название" required></label>
-                <label class="popup__field"><input class="popup__input" type="url" name="link" id="link" placeholder="Ссылка на картинку" required></label>
+            <form class="popup__form popup__form_add" name="submit-form" novalidate>
+                <label class="popup__field" >
+                    <input class="popup__input" type="text" name="title" id="named" placeholder="Название" required maxlength="30" minlength="2">
+                    <span class="popup__input-error named-error">Вы пропустили это поле.</span>
+                </label>
+                <label class="popup__field">
+                    <input class="popup__input" type="url" name="link" id="link" placeholder="Ссылка на картинку" required>
+                    <span class="popup__input-error link-error">Вы пропустили это поле.</span>
+                </label>
                 <button class="popup__submit-button popup__submit-button_add" type="submit" aria-label="Форма отправки">Создать</button>
             </form>
         </div>

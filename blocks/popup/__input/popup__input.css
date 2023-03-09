@@ -6,6 +6,8 @@
     font-size: 14px;
     line-height: 26px;
     border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 4px;
 }
 @media screen and (max-width: 550px) {
     .popup__input {

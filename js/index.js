@@ -90,3 +90,23 @@ buttonEdit.addEventListener('click', openPopupProfile);
 popupProfileClose.addEventListener('click', () => closePopup(popupEdit));
 popupAddClose.addEventListener('click', () => closePopup(popupAdd));
 popupImageClose.addEventListener('click', () => closePopup(imagePopup));
+
+
+//Закрытие Попапов нажатием на 'Esc'
+document.addEventListener('keyup', (evt) => {
+    if (evt.keyCode === 27) {
+        popup.forEach((item)=>{
+            item.classList.remove('popup_opened')
+        });
+    };    
+});
+
+
+//Закрытие Попапов нажатием на оверлей
+popup.forEach((item) => {
+    item.addEventListener('click', (evt)=>{
+        if (evt.currentTarget === evt.target) {
+            item.classList.remove('popup_opened');
+        }
+    })
+})

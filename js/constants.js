@@ -9,6 +9,7 @@ const formElementAdd = document.querySelector('.popup__form_add');
 const elements = document.querySelector('.elements');
 const buttonOpenAdded = document.querySelector('.profile__add-button');
 const imagePopup = document.querySelector('.popup_image');
+const popup = document.querySelectorAll('.popup');
 const card = document.querySelector('#card').content;
 const namedInput = document.querySelector('#named');
 const linkInput = document.querySelector('#link');
