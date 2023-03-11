@@ -9,7 +9,7 @@ const formElementAdd = document.querySelector('.popup__form_add');
 const elements = document.querySelector('.elements');
 const buttonOpenAdded = document.querySelector('.profile__add-button');
 const imagePopup = document.querySelector('.popup_image');
-const popup = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
 const card = document.querySelector('#card').content;
 const namedInput = document.querySelector('#named');
 const linkInput = document.querySelector('#link');
@@ -19,6 +19,24 @@ const name = document.querySelector('.profile__name');
 const job = document.querySelector('.profile__job');
 const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#job');
+const escape = 27;
+const obj = {
+  element: '.element',
+  elementText: '.element__text',
+  elementImage: '.element__image',
+  elementLike: '.element__like',
+  popupElement: '.element__popup',
+  elementDelete: '.element__delete',
+  openedPopup: 'popup_opened',
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__submit-button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active',
+  activeElementLike: 'element__like_active'
+}
+console.log(obj.inputErrorClass);
 const initialCards = [
     {
       name: 'Архыз',
