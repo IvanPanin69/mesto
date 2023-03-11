@@ -33,6 +33,8 @@ function closePopup(popup) {
     })
     if (popup == popupEdit || popup == popupAdd){
         const form = popup.querySelector(obj.formSelector);
+        const buttonSubmitter = form.querySelector(obj.submitButtonSelector);
+        buttonSubmitter.classList.add(obj.inactiveButtonClass);
         form.reset();
     }
 };
@@ -106,8 +108,6 @@ function handleFormSubmitAddNewCard (evt) {
     evt.preventDefault(); 
     const newCard = createCard({name: namedInput.value, link: linkInput.value});
     addCard(newCard);
-    buttonForm = evt.submitter;
-    buttonForm.classList.add(obj.inactiveButtonClass);
     closePopup(popupAdd);
 };
 
