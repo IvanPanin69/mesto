@@ -36,7 +36,6 @@ const obj = {
   errorClass: 'popup__input-error_active',
   activeElementLike: 'element__like_active'
 }
-console.log(obj.inputErrorClass);
 const initialCards = [
     {
       name: 'Архыз',
