@@ -1,19 +1,26 @@
 //Отображение ошибки при введении данных
 const showInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add(obj.inputErrorClass);
+    inputElement.classList.add(validationParameters.inputErrorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(obj.errorClass);
+    errorElement.classList.add(validationParameters.errorClass);
 };
 
 
 //Скрытие ошибки
 const hideInputError = (formElement, inputElement) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove(obj.inputErrorClass);
-    errorElement.classList.remove(obj.errorClass);
+    inputElement.classList.remove(validationParameters.inputErrorClass);
+    errorElement.classList.remove(validationParameters.errorClass);
     errorElement.textContent = '';
 }; 
+
+
+//Блокировка кнопки отправки
+function disableSubmitButton(form) {
+    const buttonSubmitter = form.querySelector(validationParameters.submitButtonSelector);
+    buttonSubmitter.classList.add(validationParameters.inactiveButtonClass);
+}
 
 
 //Проверка поля ввода формы на валидность
@@ -27,9 +34,9 @@ const isValid = (formElement, inputElement) => {
 
 
 //Установка обработчика события 'input' полям ввода
-const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll(obj.inputSelector));
-    const buttonElement = formElement.querySelector(obj.submitButtonSelector);
+const setEventListeners = (formElement, validationParameters) => {
+    const inputList = Array.from(formElement.querySelectorAll(validationParameters.inputSelector));
+    const buttonElement = formElement.querySelector(validationParameters.submitButtonSelector);
     toggleButtonState(inputList, buttonElement);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
@@ -51,17 +58,17 @@ const hasInvalidInput = (inputList) => {
 //Изменение состояния кнопки отправки формы 
 const toggleButtonState = (inputList, buttonElement) => {
     if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add(obj.inactiveButtonClass);
+        buttonElement.classList.add(validationParameters.inactiveButtonClass);
     } else {
-        buttonElement.classList.remove(obj.inactiveButtonClass);
+        buttonElement.classList.remove(validationParameters.inactiveButtonClass);
     }
 }; 
 
 //Установка функции 'setEventListeners' на все формы проекта и запуск валидации
-const enableValidation = () => {
-    const formList = Array.from(document.querySelectorAll(obj.formSelector));
+const enableValidation = (validationParameters) => {
+    const formList = Array.from(document.querySelectorAll(validationParameters.formSelector));
         formList.forEach((formElement) => {
-            setEventListeners(formElement);
+            setEventListeners(formElement, validationParameters);
         });
 };
 enableValidation({
@@ -72,4 +79,3 @@ enableValidation({
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__input-error_active'
   });
-enableValidation(); 

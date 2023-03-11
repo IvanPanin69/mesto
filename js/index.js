@@ -1,42 +1,32 @@
 //Открытие Попапов
 function openPopup(popup) {
-    popup.classList.add(obj.openedPopup);
-    document.addEventListener('keyup', (evt) => {
+    popup.classList.add(selectors.openedPopup);
+    document.addEventListener('keyup', function closeByEsc(evt)  {
         if (evt.keyCode === escape) {
                 closePopup(popup);
         };    
     });
-    popups.forEach((item) => {
-        item.addEventListener('click', (evt)=>{
-            if (evt.currentTarget === evt.target) {
-                closePopup(item);
-            }
-        })
-    })
 };
+
+
+//Функция сброса данных при закрытии попапа с заполенными полями
+function isFormPopup(popup) {
+    if (popup === popupEdit || popup === popupAdd){
+    const form = popup.querySelector(selectors.formSelector);
+    disableSubmitButton(popup);
+    form.reset();
+}};
 
 
 //Закрытие Попапов
 function closePopup(popup) {
-    popup.classList.remove(obj.openedPopup);
-    document.removeEventListener('keyup', (evt) => {
+    popup.classList.remove(selectors.openedPopup);
+    document.removeEventListener('keyup', function closeByEsc(evt) {
         if (evt.keyCode === escape) {
                 closePopup(popup);
         };    
     });
-    popups.forEach((item) => {
-        item.removeEventListener('click', (evt)=>{
-            if (evt.currentTarget === evt.target) {
-                closePopup(item);
-            }
-        })
-    })
-    if (popup == popupEdit || popup == popupAdd){
-        const form = popup.querySelector(obj.formSelector);
-        const buttonSubmitter = form.querySelector(obj.submitButtonSelector);
-        buttonSubmitter.classList.add(obj.inactiveButtonClass);
-        form.reset();
-    }
+    isFormPopup(popup);
 };
 
 
@@ -53,37 +43,39 @@ function handleFormSubmitEdit (evt) {
     evt.preventDefault();
     name.textContent = nameInput.value;
     job.textContent = jobInput.value;
+    disableSubmitButton(formElementEdit);
+    formElementEdit.reset();
     closePopup(popupEdit);
 };
 
 
 //Создание Карточек
 const createCard = ({name, link}) => {
-    const elementCardAdd = card.querySelector(obj.element).cloneNode(true); 
-    elementCardAdd.querySelector(obj.elementText).textContent = name;
-    const cardImage =  elementCardAdd.querySelector(obj.elementImage);
+    const elementCardAdd = card.querySelector(selectors.element).cloneNode(true); 
+    elementCardAdd.querySelector(selectors.elementText).textContent = name;
+    const cardImage =  elementCardAdd.querySelector(selectors.elementImage);
     cardImage.src = link; 
     cardImage.alt = name;
     
     //Лайк Карточки
-    const buttonLike = elementCardAdd.querySelector(obj.elementLike);
+    const buttonLike = elementCardAdd.querySelector(selectors.elementLike);
     buttonLike.addEventListener('click', () => {
-        buttonLike.classList.toggle(obj.activeElementLike);
+        buttonLike.classList.toggle(selectors.activeElementLike);
     });
 
     //Открытие Попапа Просмотра Картинки
-    const buttonOpenImage = elementCardAdd.querySelector(obj.popupElement);
+    const buttonOpenImage = elementCardAdd.querySelector(selectors.popupElement);
     buttonOpenImage.addEventListener('click', () => {
-        popupImage.src = elementCardAdd.querySelector(obj.elementImage).src; 
-        popupImage.alt = elementCardAdd.querySelector(obj.elementText).textContent; 
-        popupText.textContent = elementCardAdd.querySelector(obj.elementText).textContent;
+        popupImage.src = elementCardAdd.querySelector(selectors.elementImage).src; 
+        popupImage.alt = elementCardAdd.querySelector(selectors.elementText).textContent; 
+        popupText.textContent = elementCardAdd.querySelector(selectors.elementText).textContent;
         openPopup(imagePopup);
     });
 
     //Удаление Карточки 
-    const buttonDelete = elementCardAdd.querySelector(obj.elementDelete);
+    const buttonDelete = elementCardAdd.querySelector(selectors.elementDelete);
     buttonDelete.addEventListener('click', () => {
-        const elementDelete = buttonDelete.closest(obj.element);
+        const elementDelete = buttonDelete.closest(selectors.element);
         elementDelete.remove();
     });
     return elementCardAdd;
@@ -108,6 +100,8 @@ function handleFormSubmitAddNewCard (evt) {
     evt.preventDefault(); 
     const newCard = createCard({name: namedInput.value, link: linkInput.value});
     addCard(newCard);
+    disableSubmitButton(formElementAdd);
+    formElementAdd.reset();
     closePopup(popupAdd);
 };
 
@@ -120,3 +114,10 @@ buttonEdit.addEventListener('click', openPopupProfile);
 popupProfileClose.addEventListener('click', () => closePopup(popupEdit));
 popupAddClose.addEventListener('click', () => closePopup(popupAdd));
 popupImageClose.addEventListener('click', () => closePopup(imagePopup));
+popups.forEach((item) => {
+    item.addEventListener('click', (evt)=>{
+        if (evt.currentTarget === evt.target) {
+            closePopup(item);
+        }
+    })
+})

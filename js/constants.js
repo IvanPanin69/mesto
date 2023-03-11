@@ -20,7 +20,7 @@ const job = document.querySelector('.profile__job');
 const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#job');
 const escape = 27;
-const obj = {
+const selectors = {
   element: '.element',
   elementText: '.element__text',
   elementImage: '.element__image',
@@ -29,13 +29,16 @@ const obj = {
   elementDelete: '.element__delete',
   openedPopup: 'popup_opened',
   formSelector: '.popup__form',
+  activeElementLike: 'element__like_active'
+};
+const validationParameters = {
+  formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit-button',
   inactiveButtonClass: 'popup__submit-button_disabled',
   inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active',
-  activeElementLike: 'element__like_active'
-}
+  errorClass: 'popup__input-error_active'
+};
 const initialCards = [
     {
       name: 'Архыз',
