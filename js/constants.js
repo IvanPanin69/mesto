@@ -29,15 +29,9 @@ const selectors = {
   elementDelete: '.element__delete',
   openedPopup: 'popup_opened',
   formSelector: '.popup__form',
-  activeElementLike: 'element__like_active'
-};
-const validationParameters = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
+  activeElementLike: 'element__like_active',
   submitButtonSelector: '.popup__submit-button',
-  inactiveButtonClass: 'popup__submit-button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active'
+  inactiveButtonClass: 'popup__submit-button_disabled'
 };
 const initialCards = [
     {

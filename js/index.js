@@ -1,32 +1,24 @@
+//Закртыие Попапов по средству нажатия на 'Esc'
+function closeByEsc(evt)  {
+    if (evt.keyCode === escape) {
+            popups.forEach((popup) => {
+                closePopup(popup);
+            })
+    };
+}
+
+
 //Открытие Попапов
 function openPopup(popup) {
     popup.classList.add(selectors.openedPopup);
-    document.addEventListener('keyup', function closeByEsc(evt)  {
-        if (evt.keyCode === escape) {
-                closePopup(popup);
-        };    
-    });
+    document.addEventListener('keyup', closeByEsc);
 };
-
-
-//Функция сброса данных при закрытии попапа с заполенными полями
-function isFormPopup(popup) {
-    if (popup === popupEdit || popup === popupAdd){
-    const form = popup.querySelector(selectors.formSelector);
-    disableSubmitButton(popup);
-    form.reset();
-}};
 
 
 //Закрытие Попапов
 function closePopup(popup) {
     popup.classList.remove(selectors.openedPopup);
-    document.removeEventListener('keyup', function closeByEsc(evt) {
-        if (evt.keyCode === escape) {
-                closePopup(popup);
-        };    
-    });
-    isFormPopup(popup);
+    document.removeEventListener('keyup', closeByEsc);
 };
 
 
@@ -109,8 +101,18 @@ function handleFormSubmitAddNewCard (evt) {
 //Колбеки
 formElementAdd.addEventListener('submit', handleFormSubmitAddNewCard);
 formElementEdit.addEventListener('submit', handleFormSubmitEdit);
-buttonOpenAdded.addEventListener('click', () => openPopup(popupAdd));
-buttonEdit.addEventListener('click', openPopupProfile); 
+buttonOpenAdded.addEventListener('click', () => {
+    openPopup(popupAdd);
+    const form = popupAdd.querySelector(selectors.formSelector); 
+    disableSubmitButton(popupAdd); 
+    form.reset();
+});
+buttonEdit.addEventListener('click', () => {
+    const form = popupEdit.querySelector(selectors.formSelector); 
+    disableSubmitButton(popupEdit); 
+    form.reset();
+    openPopupProfile();
+}); 
 popupProfileClose.addEventListener('click', () => closePopup(popupEdit));
 popupAddClose.addEventListener('click', () => closePopup(popupAdd));
 popupImageClose.addEventListener('click', () => closePopup(imagePopup));
